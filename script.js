@@ -42,10 +42,40 @@ function play_round(user_choice, computer_choice)
     }
 }
 
+function play_game(){
+
 let user_score = 0;
 let computer_score = 0;
 
-while (user_score <= 5 || computer_score <= 5)
+while (user_score < 5 && computer_score < 5)
 {
+    let user_choice = get_user_choice();
+    let computer_choice = get_computer_choice();
+    let round_result = play_round(user_choice, computer_choice);
+    if (round_result == 1)
+    {
+        user_score += 1;
+    }
+    else if(round_result == -1)
+    {
+        computer_score += 1;
+    }
+    else if (round_result == 0)
+    {
+        user_score += 0;
+    }
+
+    console.log(`User:  ${user_score} Computer:  ${computer_score}`);
     
 }
+
+if (user_score == 5)
+{
+    console.log("YOU WINNNNN!!!! :()");
+}
+else if (computer_score == 5)
+{
+    console.log("WOMP WOMP YOU STINKKKK, MY GRANDMA COULD DO BETTER")
+}
+}
+console.log(play_game())
