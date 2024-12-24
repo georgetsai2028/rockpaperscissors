@@ -23,10 +23,14 @@ function get_computer_choice()
 
 function get_user_choice()
 {
-    let user_input = 0;
-    rockButton.document.querySelector("#btn");
-    paperButton.document.querySelector("#btn");
-    scissorsButton.document.querySelector("#btn");
+    buttonDiv.querySelectorAll("button");
+    buttonDiv[0].id = "rockButton";
+    buttonDiv[1].id = "paperButton";
+    buttonDiv[2].id = "scissorButton";
+
+    document.querySelector("#rockButton");
+    document.querySelector("#paperButton");
+    document.querySelector("#scissorsButton");
 
     rockButton.addEventListener("click", user_input = 0);
     paperButton.addEventListener("click", user_input = 1);
@@ -53,7 +57,8 @@ function play_round(user_choice, computer_choice)
         return -1;
     }
 }
-
+let choice = get_user_choice();
+console.log(user_choice);
 /*
 function play_game(){
 
