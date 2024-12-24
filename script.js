@@ -42,11 +42,21 @@ function play_round(user_choice, computer_choice)
     }
 }
 
+const buttonDiv = document.createElement("div");
+const rockButton = document.createElement("button");
+const paperButton = document.createElement("button");
+const scissorsButton = document.createElement("button");
+
+buttonDiv.appendChild(rockButton);
+buttonDiv.appendChild(paperButton);
+buttonDiv.appendChild(scissorsButton);
+
 function play_game(){
 
 let user_score = 0;
 let computer_score = 0;
 
+/*
 while (user_score < 5 && computer_score < 5)
 {
     let user_choice = get_user_choice();
@@ -77,5 +87,6 @@ else if (computer_score == 5)
 {
     console.log("WOMP WOMP YOU STINKKKK, MY GRANDMA COULD DO BETTER")
 }
-}
+}*/
 console.log(play_game())
+}
