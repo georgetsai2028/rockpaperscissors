@@ -1,22 +1,21 @@
+const rockButton = document.getElementById("rockButton");
+const paperButton = document.getElementById("paperButton");
+const scissorButton = document.getElementById("scissorButton");
+
 const buttonDiv = document.createElement("div");
-buttonDiv.style.display = "flex";
-
-
-const rockButton = document.createElement("button");
-rockButton.textContent = "Rock";
-
-const paperButton = document.createElement("button");
-paperButton.textContent = "Paper";
-
-const scissorsButton = document.createElement("button");
-scissorsButton.textContent = "Scissors";
-
 buttonDiv.appendChild(rockButton);
 buttonDiv.appendChild(paperButton);
-buttonDiv.appendChild(scissorsButton);
-
+buttonDiv.appendChild(scissorButton);
 document.body.appendChild(buttonDiv);
 
+buttonDiv.style.display = "flex";
+buttonDiv.style.justifyContent = "center";
+buttonDiv.style.backgroundColor = "darkblue";
+buttonDiv.style.justifyItems = "center";
+
+rockButton.style.margin = "10px";
+paperButton.style.margin = "10px";
+scissorButton.style.margin = "10px";
 let user_input;
 let user_score = 0;
 let computer_score = 0;
@@ -69,7 +68,7 @@ paperButton.addEventListener("click", () => {
     const computer_choice = get_computer_choice();
     play_round(user_input, computer_choice);
 })  
-scissorsButton.addEventListener("click", () => {
+scissorButton.addEventListener("click", () => {
     user_input = 2;
     const computer_choice = get_computer_choice();
     play_round(user_input, computer_choice);
