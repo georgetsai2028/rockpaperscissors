@@ -60,15 +60,27 @@ computerImage.appendChild(scissorImageComputer);
 const rockButton = document.getElementById("rockButton");
 const paperButton = document.getElementById("paperButton");
 const scissorButton = document.getElementById("scissorButton");
+const playerText = document.createElement("h1");
+const computerText = document.createElement("h1");
+playerText.textContent = "Player";
+playerText.style.fontSize = "20px";
+playerText.style.color = "darkgrey";
+computerText.textContent = "Computer";
+computerText.style.fontSize = "20px";
+computerText.style.color = "darkgrey";
 
 const buttonDiv = document.createElement("div");
+buttonDiv.appendChild(playerText);
 buttonDiv.appendChild(rockButton);
 buttonDiv.appendChild(paperButton);
 buttonDiv.appendChild(scissorButton);
+buttonDiv.appendChild(computerText);
 document.body.appendChild(buttonDiv);
+
 
 buttonDiv.style.display = "flex";
 buttonDiv.style.justifyContent = "center";
+buttonDiv.style.alignItems = "spaced-evenly";
 buttonDiv.style.backgroundColor = "darkblue";
 buttonDiv.style.justifyItems = "center";
 
