@@ -25,13 +25,17 @@ function createStyledDiv(className) {
 
 const gameContainer = document.createElement("div");
 gameContainer.style.display = "flex";
-gameContainer.style.justifyContent = "center";
+gameContainer.style.justifyContent = "space-evenly";
 document.body.appendChild(gameContainer);
 
-const playerImage = createStyledDiv("playerDiv")
+const playerImage = createStyledDiv("playerDiv");
 const computerImage = createStyledDiv ("computerDiv");
+const versusImage = createImage("versus.jpg", "image of versus", 100, 100, 10);
 
 gameContainer.appendChild(playerImage);
+gameContainer.appendChild(versusImage);
+versusImage.style.display = "block";
+
 gameContainer.appendChild(computerImage);
 
 
@@ -44,6 +48,7 @@ playerImage.appendChild(paperImagePlayer);
 playerImage.appendChild(scissorImagePlayer);
 
 
+
 const rockImageComputer = createImage("rockimage.jpg", "image of rock", 100, 100, 5);
 const paperImageComputer = createImage("paperimage.jpg", "image of paper", 100, 100, 5);
 const scissorImageComputer = createImage("cartoonscissors.jpg", "image of scissors", 100, 100, 5);
@@ -51,9 +56,6 @@ const scissorImageComputer = createImage("cartoonscissors.jpg", "image of scisso
 computerImage.appendChild(rockImageComputer);
 computerImage.appendChild(paperImageComputer);
 computerImage.appendChild(scissorImageComputer);
-
-gameContainer.appendChild(playerImage);
-gameContainer.appendChild(computerImage);
 
 const rockButton = document.getElementById("rockButton");
 const paperButton = document.getElementById("paperButton");
