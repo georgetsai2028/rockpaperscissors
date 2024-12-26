@@ -17,33 +17,49 @@ rockButton.style.margin = "10px";
 paperButton.style.margin = "10px";
 scissorButton.style.margin = "10px";
 
-function createImage(src, alt, width, height) {
+function createImage(src, alt, width, height, padding) {
     const img = document.createElement("img");
     img.src = src;
     img.alt = alt;
     img.style.width = `${width}px`;
     img.style.height = `${height}px`;
+    img.style.padding = `${padding}px`;
     
     return img;
 }
 
-const playerImage = document.querySelector(".playerDiv");
-playerImage.style.display = "flex";
-playerImage.style.padding = "20px";
-playerImage.style.margin = "20px"
+function createStyledDiv(className) {
+    const div = document.createElement("div");
+    div.className = className;
+    div.style.display = "flex";
+    div.style.flexDirection = "row";
+    div.style.padding = "5px";
+    div.style.border = "1px solid lightpurple";
+    div.style.backgroundColor = "lightblue";
+    
+    return div;
+}
 
-playerImage.appendChild(createImage(rockimage.jpg, "image of rock", 100, 100));
-playerImage.appendChild(createImage(paperimage.jpg, "image of paper", 100, 100));
-playerImage.appendChild(createImage(cartoonscissors.jpg, "image of scissors", 100, 100));
+const gameContainer = document.createElement("div");
+gameContainer.style.display = "flex";
+gameContainer.style.justifyContent = "center";
+document.body.appendChild(gameContainer);
 
-const computerImage = document.querySelector(".computerDiv");
-computerImage.style.display = "flex";
-computerImage.style.padding = "20px";
-computerImage.style.margin = "20px"
+const playerImage = createStyledDiv("playerDiv")
+const computerImage = createStyledDiv ("computerDiv");
+
+
+playerImage.appendChild(createImage("rockimage.jpg", "image of rock", 100, 100, 5));
+playerImage.appendChild(createImage("paperimage.jpg", "image of paper", 100, 100, 5));
+playerImage.appendChild(createImage("cartoonscissors.jpg", "image of scissors", 100, 100, 5));
+
+
 computerImage.appendChild(rockImage);
 computerImage.appendChild(paperImage);
 computerImage.appendChild(scissorImage);
 
+gameContainer.appendChild(playerImage);
+gameContainer.appendChild(computerImage);
 
 
 let user_input;
