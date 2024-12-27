@@ -88,6 +88,29 @@ rockButton.style.margin = "10px";
 paperButton.style.margin = "10px";
 scissorButton.style.margin = "10px";
 
+const scoreDiv = document.createElement("div");
+
+const userScore = document.createElement("span");
+userScore.id = "userScore";
+userScore.textContent = "0";
+userScore.style.fontSize = "50px";
+
+const computerScore = document.createElement("span");
+computerScore.id = "computerScore";
+computerScore.textContent = "0";
+computerScore.style.fontSize = "50px";
+
+document.body.appendChild(scoreDiv);
+scoreDiv.style.display = "flex";
+scoreDiv.style.backgroundColor = "darkblue";
+scoreDiv.style.justifyContent = "space-evenly";
+scoreDiv.style.alignItems = "center";
+
+scoreDiv.appendChild(userScore);
+scoreDiv.appendChild(document.createTextNode(" : "));
+scoreDiv.appendChild(computerScore);
+
+
 
 let user_input;
 let user_score = 0;
@@ -118,6 +141,8 @@ function get_computer_choice()
 }
 function play_round(user_choice, computer_choice)
 {
+    userScore.textContent = user_score;
+    computerScore.textContent = computer_score;
     //0 = Rock, 1 = Paper, 2 = Scissors
     if (user_choice ==  computer_choice)
     {
