@@ -23,6 +23,28 @@ function createStyledDiv(className) {
     return div;
 }
 
+function resetGame(){
+    user_score = 0;
+    computer_score = 0;
+    userScore.textContent = user_score;
+    computerScore.textContent = computer_score;
+
+
+    winner.textContent = "";
+    loser.textContent = "";
+
+    //removes images from screen
+    rockImagePlayer.style.display = "none";
+    paperImagePlayer.style.display = "none";
+    scissorImagePlayer.style.display = "none";
+    rockImageComputer.style.display = "none";
+    paperImageComputer.style.display = "none";
+    scissorImageComputer.style.display = "none";
+
+}
+
+let gameOver = false;
+
 const gameContainer = document.createElement("div");
 gameContainer.style.display = "flex";
 gameContainer.style.justifyContent = "space-evenly";
@@ -94,11 +116,16 @@ const userScore = document.createElement("span");
 userScore.id = "userScore";
 userScore.textContent = "0";
 userScore.style.fontSize = "50px";
+userScore.style.fontFamily = "monospace";
+userScore.style.color = "darkgrey";
 
 const computerScore = document.createElement("span");
 computerScore.id = "computerScore";
 computerScore.textContent = "0";
 computerScore.style.fontSize = "50px";
+computerScore.style.fontFamily = "monospace";
+computerScore.style.color = "darkgrey";
+
 
 document.body.appendChild(scoreDiv);
 scoreDiv.style.display = "flex";
@@ -109,6 +136,18 @@ scoreDiv.style.alignItems = "center";
 scoreDiv.appendChild(userScore);
 scoreDiv.appendChild(document.createTextNode(" : "));
 scoreDiv.appendChild(computerScore);
+
+const finalDiv = document.createElement("div");
+finalDiv.style.direction = "flex";
+finalDiv.style.backgroundColor = "darkblue";
+finalDiv.style.flexGrow = "1";
+document.body.appendChild(finalDiv);
+
+const winner = document.createElement("h1");
+const loser = document.createElement("h1");
+
+finalDiv.appendChild(winner);
+finalDiv.appendChild(loser);
 
 
 
@@ -160,15 +199,20 @@ function play_round(user_choice, computer_choice)
     }
     console.log(`User:  ${user_score} Computer:  ${computer_score}`);
 
-    if (user_score == 5)
+    if (user_score >= 5 && user_score > computer_score)
         {
-            console.log("YOU WINNNNN!!!! :()");
-            return 0;
+            console.log("YOU WINNNNN!!!! :)");
+            winner.textContent = "YOU WINNN!!!!! :)";
+            gameOver = true;
         }
-        else if (computer_score == 5)
+        else if (computer_score >= 5 && computer_score > user_score)
         {
             console.log("WOMP WOMP YOU STINKKKK, MY GRANDMA COULD DO BETTER")
-            return 0;
+            loser.textContent = "WOMP WOMP YOU STINKKKK, MY GRANDMA COULD DO BETTER";
+            gameOver = true;
+        }
+        if (gameOver == true){
+            setTimeout(resetGame, 3000);
         }
 }
 
