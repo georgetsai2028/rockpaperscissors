@@ -41,6 +41,8 @@ function resetGame(){
     paperImageComputer.style.display = "none";
     scissorImageComputer.style.display = "none";
 
+    location.reload();
+
 }
 
 let gameOver = false;
